@@ -33,10 +33,10 @@ class _WatchListPageState extends State<WatchListPage> {
   Widget _body() {
     return BlocBuilder(
       builder: (context, state) {
+
         if (state is LoadingCurrencyState) {
-          return Center(
-              child: Text("Loading...",
-                  style: Theme.of(context).textTheme.headline3));
+          return const Center(
+              child: CircularProgressIndicator());
         }
 
         if (currencybloc.currencies.isEmpty == true) {

@@ -25,6 +25,8 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
 
   _handleGetAllCurrencyEvent(
       GetAllCurrencyEvent event, Emitter<CurrencyState> emit) async {
+
+    emit(LoadingCurrencyState(DateTime.now()));
     var currencies = await CurrencyRepository().getAllCurrency();
 
     if (currencies.isEmpty) {
